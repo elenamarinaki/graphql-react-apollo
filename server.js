@@ -5,6 +5,7 @@ const cors = require("cors")
 
 const app = express()
 
+// allow cross-origins
 const corsOptions = {
   origin: "*",
   credentials: true, //access-control-allow-credentials:true
