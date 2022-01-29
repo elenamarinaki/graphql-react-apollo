@@ -1,0 +1,29 @@
+const {
+  GraphQLObjectType,
+  GraphQLInt,
+  GraphQLString,
+  GraphQLBoolean,
+} = require("qraphql")
+
+// Launch Type
+const LaunchType = new GraphQLObjectType({
+  name: "Launch",
+  fields: () => ({
+    flight_number: { type: GraphQLInt },
+    mission_name: { type: GraphQLString },
+    launch_year: { type: GraphQLString },
+    launch_date_local: { type: GraphQLString },
+    launch_success: { type: GraphQLBoolean },
+    rocket_type: { type: RocketType },
+  }),
+})
+
+// Rocket Type
+const RocketType = new GraphQLObjectType({
+  name: "Rocket",
+  fields: () => ({
+    rocket_id: { type: GraphQLString },
+    rocket_name: { type: GraphQLString },
+    launch_type: { type: GraphQLString },
+  }),
+})
