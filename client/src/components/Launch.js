@@ -3,7 +3,7 @@ import React from "react"
 export const Launch = () => {
   return (
     <div>
-      <h1>Launch</h1>
+      <h2>Launch</h2>
     </div>
   )
 }
