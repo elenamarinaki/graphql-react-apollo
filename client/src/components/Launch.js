@@ -22,15 +22,31 @@ const LAUNCH_QUERY = gql`
 `
 
 export const Launch = () => {
-  const { loading, error, data } = useQuery(LAUNCH_QUERY)
+  let { flight_number } = useParams()
+  const { loading, error, data } = useQuery(LAUNCH_QUERY, {
+    variables: { flight_number },
+  })
   console.log(loading, error, data)
 
-  let { flight_number } = useParams()
   console.log("PARAMS is: ", flight_number)
+
+  const {
+    mission_name,
+    launch_year,
+    launch_success,
+    rocket: { rocket_id, rocket_name, rocket_type },
+  } = data.launch
+
+  if (loading) return <h4>Loading...</h4>
+  if (error) console.error(error)
 
   return (
     <div>
-      <h2>Launch</h2>
+      <h2 className='display-4 my-3'>
+        <span className='text-dark'>Mission: </span>
+        {mission_name}
+      </h2>
+      <h4 className='mb-3'>Launch Details</h4>
     </div>
   )
 }
