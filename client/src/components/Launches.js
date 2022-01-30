@@ -3,6 +3,7 @@ import { gql } from "graphql-tag"
 import { useQuery } from "@apollo/client"
 
 import { LaunchItem } from "./LaunchItem"
+import { MissionKey } from "./MissionKey"
 
 import "./Launches.css"
 
@@ -27,6 +28,7 @@ export const Launches = () => {
   return (
     <>
       <h1 className='display-4 m-3 launches-h1 text-primary'>LAUNCHES 🚀</h1>
+      <MissionKey />
       <div>
         {data.launches.map((launch) => (
           <LaunchItem key={launch.flight_number} launch={launch} />
